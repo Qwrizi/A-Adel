@@ -1,0 +1,56 @@
+def ssl(a):
+    """SSL A: Shift Left Logical"""
+    return a[1:] + [False] 
+
+def srl(a):
+    """SRL A: Shift Right Logical"""
+    return [False] + a[:-1]  
+    
+def slc(a):
+    """SLC: Shift Left Circular"""
+    return a[1:] + [a[0]]  
+
+def and_op(a, b):
+    """AND"""
+    return [x and y for x, y in zip(a, b)]
+
+def or_op(a, b):
+    """OR"""
+    return [x or y for x, y in zip(a, b)]
+
+def xor(a, b):
+    """XOR"""
+    return [x != y for x, y in zip(a, b)]
+
+def xnor(a, b):
+    """XNOR"""
+    return [x == y for x, y in zip(a, b)]
+
+def impl(a, b):
+    """IMPL"""
+    return [not x or y for x, y in zip(a, b)]
+
+def flip(bit_string):
+    """Flip в массиве"""
+    return [not bit for bit in bit_string]
+
+def flip_at(bit_string, position):
+    """Flip"""
+    if position < 0 or position >= len(bit_string):
+        raise IndexError("Position out of range")
+    flipped = bit_string[:]
+    flipped[position] = not flipped[position]
+    return flipped
+a = [True, False, True]
+b = [False, True, True]
+print("SSL A:", ssl(a))
+print("SRL A:", srl(a))
+print("SLC A:", slc(a))
+print("AND:", and_op(a, b))
+print("OR:", or_op(a, b))
+print("XOR:", xor(a, b))
+print("XNOR:", xnor(a, b))
+print("IMPL:", impl(a, b))
+print("FLIP:", flip(a))
+print("FLIP AT 1:", flip_at(a, 1))
+    
