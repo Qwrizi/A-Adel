@@ -1,13 +1,13 @@
 def ssl(a):
-    """SSL A: Shift Left Logical"""
+    """SSL"""
     return a[1:] + [False] 
 
 def srl(a):
-    """SRL A: Shift Right Logical"""
+    """SRL"""
     return [False] + a[:-1]  
     
 def slc(a):
-    """SLC: Shift Left Circular"""
+    """SLC"""
     return a[1:] + [a[0]]  
 
 def and_op(a, b):
